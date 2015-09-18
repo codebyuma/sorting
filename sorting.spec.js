@@ -5,7 +5,7 @@ describe('Bubble Sort', function(){
 });
 
 describe('Bubble Sort', function(){
-    it('handles an single value array', function(){
+    it('handles an array of one element', function(){
         expect( bubbleSort([6]) ).toEqual( [6] );
     });
 });
@@ -46,6 +46,23 @@ describe('Bubble Sort', function(){
     });
 });
 
+describe('Bubble Sort', function(){
+    it('swaps expected number of times', function(){
+        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+    });
+});
+describe('Bubble Sort', function(){
+    it('compares expected number of times', function(){
+        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+    });
+});
+describe('Bubble Sort', function(){
+    it('sorts in place', function(){
+        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+    });
+});
+
+
 /*work with your partner to create test cases for single items 
 and multiple items. As an exercise, you should also keep track of 
 how many comparisons and swaps are done for each bubble sort*/
@@ -68,7 +85,6 @@ describe('Split Array function', function() {
   });
 });
 
-
 describe('Merge Sort', function(){
     it('is able to sort an empty array', function(){
         expect( mergeSort([]) ).toEqual( [] );
@@ -84,6 +100,12 @@ describe('Merge Sort', function(){
 describe('Merge Sort', function(){
     it('is able to sort two values in an array', function(){
         expect( mergeSort([88,1]) ).toEqual( [1,88] );
+    });
+});
+
+describe('Merge Sort', function(){
+    it('is able to sort two values in an array', function(){
+        expect( mergeSort([88,1,3,2]) ).toEqual( [1,2,3,88] );
     });
 });
 
