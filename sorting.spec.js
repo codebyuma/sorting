@@ -48,24 +48,96 @@ describe('Bubble Sort', function(){
 
 describe('Bubble Sort', function(){
     it('swaps expected number of times', function(){
-        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+        var arr = [4,6,5,1];
+        spyOn(window, 'swap').andCallThrough(); // andCallThrough ensures that the original swap that we're replacing with a spy with will still be run
+        bubbleSort(arr);
+        var numSwaps = swap.callCount;
+        expect(numSwaps).toEqual(4);
     });
 });
 describe('Bubble Sort', function(){
     it('compares expected number of times', function(){
-        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+        
     });
 });
 describe('Bubble Sort', function(){
     it('sorts in place', function(){
-        expect( bubbleSort([1,2,1]) ).toEqual( [1,1,2] );
+        
     });
 });
+
+/*
+what a spy does:
+
+// without callThrough
+function spyOn (obj, methodName){
+    function spiedMethod(){ // function that we're treating like an object by adding this callcount property on it
+        spiedMethod.callCount = spiedMethod.callCount || 0; // either use what you already have or use zero. every time the function is run, it will change
+        spiedMethod.callCount++;
+    }
+    obj[methodName] = spiedMethod; // window['swap'] = spiedMethod;
+}
+
+swap(); // will run the swap in bubblesort
+spyOn(window, 'swap');
+swap(); // will run spiedMethod above because it was replaced in the above line
+swap.callCount = 1;
+
+// with call through
+function spyOn (obj, methodName){
+    var original = obj[methodName];
+    function spiedMethod(){ // function that we're treating like an object by adding this callcount property on it
+        spiedMethod.callCount = spiedMethod.callCount || 0; // either use what you already have or use zero. every time the function is run, it will change
+        spiedMethod.callCount++;
+        return original.apply(this, arguments); // will invoke the original and chains along any arguments 
+    }
+    obj[methodName] = spiedMethod; // window['swap'] = spiedMethod;
+}
+
+*/
 
 
 /*work with your partner to create test cases for single items 
 and multiple items. As an exercise, you should also keep track of 
 how many comparisons and swaps are done for each bubble sort*/
+
+
+describe ('Merge sort', function (){
+
+    describe('halve', function (){
+
+        if ('given one array, returns two arrays', function (){
+            expect(halve([])).toEqual([[],[]]);
+
+        });
+
+        if ('given one array, returns two arrays', function (){
+            expect(halve([[5,10]])).toEqual([[5],[10]]);
+            
+        });
+        if ('given one array, returns two arrays', function (){
+            expect(halve([[4,10,20]])).toEqual([[4],[10, 20]]);
+        });
+
+
+    });
+
+    describe('merge', function (){
+
+        if ('given two arrays, returns an array', function (){
+
+            /* grab all tests from github after...*/
+        })
+
+
+    });
+
+
+
+
+});
+
+
 
 describe('Merge', function(){
     it('is able to merge two sorted arrays in order', function(){

@@ -34,6 +34,38 @@ function bubbleSort(array) {
 
 }
 
+/* solution & comments 
+
+function swap (arr, indexA, indexB){  // create own function and then spy on it in the test, to tell how many times it was called.
+	var oldElem = arr[indexA];
+	arr[indexA] = arr[indexB];
+	arr[indexB] = oldElem;
+};
+
+function bubbleSort (arr){
+	//var sorted = [];
+
+	var swapHappenedLastTime = true;
+
+	while (swapHappenedLastTime){
+		wapHappenedLastTime = false;
+		for (var i = 0; i<arr.length-1; i++){
+			if (arr[i]>arr[i+1]){
+				swap(arr, i, i+1);
+				swapHappenedLastTime = true;
+			
+			}
+		}
+	}
+	return arr;
+}
+
+
+
+*/
+
+
+
 
 function merge (array1, array2){
 	var result = [];
@@ -60,6 +92,52 @@ function merge (array1, array2){
 
 }
 
+/*
+
+function merge (left, right){
+
+	var merged = [];
+	
+	//for (var i =0; i<left.length; i++){
+	//	if (left[i]<right[i])
+	//		merged.push(left[i], right[i]);
+	//	else
+	//		merged.push(right[i], left[i]);
+	//}
+
+	var leftIndex = 0;
+	var rightIndex = 0;
+
+	while (leftIndex<left.length || rightIndex < right.length){
+		if (left[leftIndex]<right[rightIndex] || right[rightIndex] === undefined){
+			merged.push(left[leftIndex]);
+			leftIndex++;
+		} else{
+			merged.push(right[rightIndex]);
+			rightIndex++;
+		}
+	}
+
+	return merged;
+}
+
+OR:
+
+var merged = [];
+while (left.length && right.length){
+
+	if (left[0]<right[0])
+		merged.push(left.shift());
+	else
+		merged.push(right.shift());
+
+}
+
+return merged.concat(left).concat(right);
+
+
+*/
+
 function split(wholeArray) {
 
     /* your code here to define the firstHalf and secondHalf arrays */
@@ -77,6 +155,30 @@ function split(wholeArray) {
     console.log([firstHalf, secondHalf]);*/
     return [firstHalf, secondHalf];
 }
+
+/*
+
+function halve (arr){
+	var left = [], right = [];
+	//for (var i = 0; i<arr.length/2; i++){
+	//	left.push(arr[i]);
+	//}
+	//for (var =arr.length/2; i<arr.length; i++){
+   //		right.push(arr[i]);
+	//}
+
+	var middle = arr.length/2;
+	left = arr.slice(0, middle);
+	right = arr.slice(middle);
+
+	return [left, right];
+
+}
+
+
+*/
+
+
 
 function mergeSort(array) {
 
@@ -154,3 +256,27 @@ function mergeSort(array) {
     return finalArray;
 
 }
+
+/*
+
+function mergeSort(unsorted){
+
+	if (unsorted.length<2){
+		return unsorted;
+	}
+	
+	var halves = halve(unsorted); // split into two halves
+	var left = halves[0];
+	var right = halves[1];
+
+	var sortedLeft = mergeSort(left); // run mergeSort on each
+	var sortedRight = mergeSort(right);
+
+	return merge(sortedLeft, sortedRight); // return the merged halves
+}
+
+
+*/
+
+
+
